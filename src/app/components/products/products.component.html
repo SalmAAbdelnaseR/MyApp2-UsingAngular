@@ -1,0 +1,53 @@
+<div class="container my-4">
+
+  <!--Filter Section-->
+  <div class="row mb-3">
+    <div class="col-md-3">
+      <input [(ngModel)] = "titleFilter" class="form-control" placeholder="Filter By Title"/>
+    </div>
+
+    <div class="col-md-3">
+      <input [(ngModel)] = "priceFilter" class="form-control" type="number" placeholder="Max Price"/>
+    </div>
+
+    <div class="col-md-3">
+      <select [(ngModel)] = "selectedCategory" class="form-select">
+        <option value="">All Categories</option>
+        <option *ngFor = "let cat of categories" [value]="cat.slug">{{ cat.name }}</option>
+      </select>
+    </div>
+
+    <div class="col-md-3">
+      <button class="btn btn-secondary w-100" (click)="resetFilters()">Reset Filters</button>
+    </div>
+  </div>
+
+  <!--Status Messages-->
+  <div *ngIf="loading" class="text-center text-muted mb-3">
+    LOADING...
+  </div>
+
+  <!--here i am using custom pipe named productFilter that displays products array but only the filtered based on arg1:arg2:arg3:...-->
+  <div *ngIf="!loading && (products | productFilter:titleFilter:priceFilter:selectedCategory).length===0" class="text-center text-danger">
+    NO PRODUCTS FOUND.
+  </div>
+
+  <!--Products Card-->
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let product of products | productFilter:titleFilter:priceFilter:selectedCategory">
+      <div class="card h-100 shadow-sm">
+        <img [src]="product.thumbnail || 'https://via.placeholder.com/300x200?text=No+Image'"
+        class="card-img-top"
+        [alt]="product.title">
+        <div class="card-body">
+          <h5 class="card-title">{{product.title}}</h5>
+          <span class="badge bg-primary">{{product.category}}</span>
+          <p class="text-success fw-bold my-2">£{{product.price}}</p>
+          <p class="text-muted">{{ product.description }}</p>
+          <!--here is the ratingStars custom pipe to show the rating as stars-->
+          <p class="text-warning">Rating: {{ product.rating | ratingStars }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+.star-full {
+  color: gold;
+}
+.star-half {
+  color: gold;
+  position: relative;
+}
+.star-half:after {
+  content: '★';
+  position: absolute;
+  left: 0;
+  width: 50%;
+  overflow: hidden;
+}
+.star-empty {
+  color: lightgray;
+}
