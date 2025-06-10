@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from './services/cart';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class App {
   protected title = 'ProductApp';
+
+  constructor(public cartService: CartService) {}
 }

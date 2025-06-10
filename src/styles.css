@@ -1,8 +1,125 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f9fff9;
+  background-color: #efd5ed;
 }
 .card {
   border-radius: 12px;
+}
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar Styling */
+.custom-navbar {
+  background: linear-gradient(to right, #fcbad3, #89a9c7);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Styling */
+.custom-footer {
+  background: linear-gradient(to right,#89a9c7, #fcbad3);
+  color: #333;
+}
+
+.custom-footer a {
+  color: #333;
+  text-decoration: none;
+}
+
+.custom-footer a:hover {
+  text-decoration: underline;
+}
+.bg-light-pastel {
+  background: linear-gradient(to right, #fdfbfb, #ebedee);
+}
+
+.pastel-badge {
+  background-color: #a2d2ff;
+  color: #333;
+  font-weight: 500;
+  padding: 0.4rem 0.7rem;
+  border-radius: 12px;
+}
+
+.pastel-btn {
+  background: linear-gradient(to right, #fcbad3, #a2d2ff);
+  border: none;
+}
+
+.pastel-btn:hover {
+  opacity: 0.9;
+}
+
+.pastel-thumb {
+  transition: transform 0.2s;
+}
+.pastel-thumb:hover {
+  transform: scale(1.05);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #a2d2ff, #fcbad3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.pastel-card {
+  background: linear-gradient(to bottom, #ffffff, #f9f5ff);
+  transition: transform 0.2s ease;
+}
+.pastel-card:hover {
+  transform: translateY(-3px);
+}
+
+.pastel-input {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #fdfbfb;
+}
+
+.pastel-btn {
+  background: linear-gradient(to right, #fcbad3, #a2d2ff);
+  border: none;
+  border-radius: 10px;
+}
+.pastel-btn:hover {
+  opacity: 0.9;
+}
+
+.pastel-badge {
+  background-color: #a2d2ff;
+  color: #333;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 12px;
+}
+.pastel-card {
+  background: linear-gradient(to bottom, #fff, #fef6ff);
+  border-radius: 20px;
+  border: 1px solid #eee;
+}
+
+.pastel-input {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+}
+
+.pastel-btn {
+  background: linear-gradient(to right, #fcbad3, #a2d2ff);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.pastel-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.pastel-heading {
+  color: #a471b3;
+  font-family: 'Poppins', sans-serif;
 }

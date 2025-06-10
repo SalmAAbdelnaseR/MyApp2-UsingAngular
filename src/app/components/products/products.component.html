@@ -1,6 +1,6 @@
 <div class="container my-4">
 
-  <!--Filter Section-->
+ 
   <div class="row mb-3">
     <div class="col-md-3">
       <input [(ngModel)] = "titleFilter" class="form-control" placeholder="Filter By Title"/>
@@ -22,17 +22,17 @@
     </div>
   </div>
 
-  <!--Status Messages-->
+ 
   <div *ngIf="loading" class="text-center text-muted mb-3">
     LOADING...
   </div>
 
-  <!--here i am using custom pipe named productFilter that displays products array but only the filtered based on arg1:arg2:arg3:...-->
+
   <div *ngIf="!loading && (products | productFilter:titleFilter:priceFilter:selectedCategory).length===0" class="text-center text-danger">
     NO PRODUCTS FOUND.
   </div>
 
-  <!--Products Card-->
+
   <div class="row">
     <div class="col-md-4 mb-4" *ngFor="let product of products | productFilter:titleFilter:priceFilter:selectedCategory">
       <div class="card h-100 shadow-sm">
@@ -44,8 +44,14 @@
           <span class="badge bg-primary">{{product.category}}</span>
           <p class="text-success fw-bold my-2">£{{product.price}}</p>
           <p class="text-muted">{{ product.description }}</p>
-          <!--here is the ratingStars custom pipe to show the rating as stars-->
+      
           <p class="text-warning">Rating: {{ product.rating | ratingStars }}</p>
+
+          <div class="d-flex justify-content-between mt-3">
+            <a [routerLink]="['/products', product.id]" class="btn btn-outline-primary btn-sm">View Details</a>
+            <button (click)="addToCart(product)" class="btn btn-primary btn-sm">Add to Cart</button>
+          </div>
+          
         </div>
       </div>
     </div>

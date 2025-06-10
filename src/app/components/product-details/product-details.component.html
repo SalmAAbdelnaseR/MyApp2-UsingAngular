@@ -1,0 +1,54 @@
+<!-- Loading Spinner -->
+<div *ngIf="loading" class="text-center my-5">
+  <div class="spinner-border text-gradient" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<!-- Product Detail -->
+<div *ngIf="!loading && product" class="container my-5 py-4 px-3 rounded-4 shadow-sm bg-light-pastel">
+  <div class="row gy-4 align-items-start">
+    <!-- Product Images -->
+    <div class="col-md-6">
+      <img [src]="product.thumbnail" class="img-fluid rounded-4 mb-3 shadow-sm" [alt]="product.title">
+      <div class="d-flex flex-wrap gap-2">
+        <img *ngFor="let image of product.images"
+             [src]="image"
+             class="img-thumbnail rounded-3 border pastel-thumb"
+             style="width: 100px; height: 100px;">
+      </div>
+    </div>
+
+    <!-- Product Details -->
+    <div class="col-md-6">
+      <h2 class="fw-bold">{{product.title}}</h2>
+      <span class="badge pastel-badge mb-2">{{product.category}}</span>
+      <p class="text-success fs-5 fw-semibold">£{{product.price | number:'1.2-2'}}</p>
+      <p class="text-muted">{{product.description}}</p>
+      
+      <!-- Rating -->
+      <div class="mb-3">
+        <span class="text-warning">{{product.rating | ratingStars}}</span>
+        <span class="ms-2 text-muted">({{product.rating}})</span>
+      </div>
+      
+      <!-- Brand & Stock -->
+      <p><strong>Brand:</strong> {{product.brand}}</p>
+      <p><strong>Stock:</strong> 
+        <span [class.text-success]="product.stock > 0" [class.text-danger]="product.stock <= 0">
+          {{product.stock > 0 ? product.stock + ' available' : 'Out of stock'}}
+        </span>
+      </p>
+      
+      <!-- Buttons -->
+      <div class="d-flex gap-3 mt-4">
+        <button class="btn pastel-btn text-white fw-semibold px-4 py-2"
+                (click)="addToCart()"
+                [disabled]="product.stock <= 0">
+          Add to Cart
+        </button>
+        <a routerLink="/products" class="btn btn-outline-secondary">Back to Products</a>
+      </div>
+    </div>
+  </div>
+</div>

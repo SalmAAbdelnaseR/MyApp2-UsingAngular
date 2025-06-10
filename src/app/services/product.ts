@@ -16,5 +16,8 @@ export class ProductService {
   getCategories(): Observable<any> {
     return this.http.get<any>(this.url + "/categories");
   }
+  getProductById(id: number): Observable<any> {
+    return this.http.get<any>(`https://dummyjson.com/products/${id}`);
+  }
 
 }

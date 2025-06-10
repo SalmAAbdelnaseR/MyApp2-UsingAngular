@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../services/product'; // 👈 adjust the relative path
+import { ProductService } from '../../services/product'; 
+import { CartService } from '../../services/cart';
 
 @Component({
   selector: 'app-products',
@@ -18,7 +19,9 @@ export class ProductsComponent implements OnInit{
   priceFilter: number | null = null;
   selectedCategory: string = "";
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, 
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
       this.productService.getProducts().subscribe({
@@ -45,4 +48,10 @@ export class ProductsComponent implements OnInit{
     this.priceFilter = null;
     this.selectedCategory = "";
   }
+
+  addToCart(product: any) {
+    this.cartService.addToCart(product);
+    alert(`${product.title} added to cart!`);
+  }
+  
 }
