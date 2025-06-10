@@ -1,12 +1,12 @@
 .banner {
   display: flex;
-  justify-content: center; /* Horizontally center the image */
-  align-items: center; /* Vertically center the image (optional) */
-  padding-left: 25px; /* Adjust left padding as desired */
-  padding-right: 25px; /* Adjust right padding as desired */
+  justify-content: center; 
+  align-items: center; 
+  padding-left: 25px; 
+  padding-right: 25px; 
 }
 
 .banner img {
-  height: 900px; /* Set your desired height */
-  width: auto; /* Keep the aspect ratio intact */
+  height: 900px;
+  width: auto;
 }
